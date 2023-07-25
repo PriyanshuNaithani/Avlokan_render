@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const appointmentSchema = {
     date: {
-        type: Date,
+        type: String,
         required: true
     },
     time: {
