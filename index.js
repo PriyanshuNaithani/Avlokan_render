@@ -3,6 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/user");
+const blogRoute = require("./routes/blog");
 const dbConn = require("./config/dbConnection");
 const sessionMiddleware = require("./middleware/sessionMiddleware");
 
@@ -15,6 +16,7 @@ app.use(sessionMiddleware);
 
 const port = process.env.PORT || 5600;
 app.use("/", userRoute);
+app.use("/blog",blogRoute);
 
 dbConn().then(() => {
   app.listen(port, () => {
